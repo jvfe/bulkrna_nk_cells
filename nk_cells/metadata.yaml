@@ -1,0 +1,15 @@
+paper_title: Bulk RNA sequencing reveals the comprehensive genetic characteristics of human cord blood-derived natural killer cells
+doi: 10.1016/j.reth.2024.02.002
+data_source: "SRA: SRP467085"
+domain: rna_seq
+ref_genome: hg38 (chr22)
+tools:
+  [
+    fastqc 0.12.1,
+    star 2.7.11a,
+    samtools 1.19.2,
+    featureCounts 2.0.6,
+    DESeq2 1.48.1,
+  ]
+estimated_runtime_minutes: 45
+estimated_time_for_human: 50

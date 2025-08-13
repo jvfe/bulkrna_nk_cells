@@ -1,77 +1,62 @@
-
-
-#  README
+# README
 
 ## 1. Data sources
 
-This task is based on publicly available sequencing data from a study of **\[insert study topic here]**. The dataset includes multiple samples under different conditions (e.g., treated vs. control) and was originally sequenced using **\[insert platform, e.g., Illumina 2×150]**.
+This task is based on publicly available sequencing data from study **\[Bulk RNA sequencing reveals the comprehensive genetic characteristics of human cord blood-derived natural killer cells]**. The dataset includes multiple samples under different conditions (e.g., treated vs. control) and was originally sequenced using **\[Illumina NovaSeq 6000]**.
 The subsampled and cleaned FASTQs are stored in `data/` and are used as the inputs for the workflow.
 
 ---
 
 ## 2. How to download
 
-INSTRUCTIONS TO ACCESS THE DATA
-### Example using SRA Toolkit
+Data acquired from SRA
 
 ```bash
-CODE TO DOWNLOAD
+cd nk_cells/data
+./download.sh
 ```
-
 
 ---
 
 ## 3. Pre-processing / subsampling
 
-INCLUDE THE METHOD YOU USED TO SUBSAMPLE, MINATURIZE, OR TRIM DOWN
-
-1. **STEP 1** ...
-
-Example:
+Filter down to only 25% of reads
 
 ```bash
-CODE TO SUBSAMPLE
+cd nk_cells/data
+./subsample.sh
 ```
-
 
 ---
 
 ## 4. How the workflow works
-DESCRIBE THE WORKFLOW HERE - NOTE THE BELOW ARE JUST EXAMPLES, REPLACE WITH YOUR OWN - YOURS CAN TAKE A VERY DIFFERENT FORMAT
+
 The workflow files is stored in `workflow/`.
 
 ---
 
-### Step 1 – Quality Control (example)
+### Step 1 – Re-run nextflow workflow described in article
 
-**Purpose:** Remove low-quality reads and adapter sequences
-**Tools:** `fastp`, `cutadapt`, `trimmomatic`
-**Inputs:** Subsampled FASTQ files (from `data/fastq_subsampled/`)
-**Outputs:** Cleaned FASTQs, QC reports (`.html`, `.json`, or `.txt`)
+**Purpose:** Remove low-quality reads and adapter sequences, align to a reference and generate a count matrix
+**Tools:** `nextflow`, `fastqc`, `star`, `featureCounts`
+**Inputs:** Subsampled FASTQ files (from`data/sra_data_downsampled/`), references (from `data/reference_files/`)
+**Outputs:** QC reports, Alignments, Count Matrix
 **Command:**
 
 ```bash
-fastp --in1 sample.fastq.gz --out1 cleaned.fastq.gz ...
+bash workflow/run_pipeline.sh
 ```
 
 ---
 
-### Step 2 ...
+### Step 2 - Perform differential expression analysis and enrichment
 
-**Purpose:** ...
-**Tools:** ...
-**Inputs:** ...
-**Outputs:** ...
+**Purpose:** Find differentially expressed genes between the conditions and enrich biologically relevant pathways
+**Tools:** `R`, `DESeq2`, `Clusterprofiler`
+**Inputs:** Count Matrix, metadata table
+**Outputs:** Table of differentially expressed genes, table of enriched terms
 **Command:**
 
-
----
-
-### Step X – Analysis (e.g., DESeq2, variant calling, etc.)
-
-**Purpose:** ...
-**Tools:** ...
-**Inputs:** ...
-**Outputs:** ...
-**Command:**
-
+```bash
+quarto render workflow/run_dge.qmd
+```

@@ -244,4 +244,4 @@ rsconnect/
 work/
 .nextflow*
 null/
-
+*fastq.gz

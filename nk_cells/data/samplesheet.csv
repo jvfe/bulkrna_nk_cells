@@ -1,0 +1,7 @@
+sample,fastq_1,fastq_2,strandedness
+SRR26421628,data/sra_data_downsampled/SRR26421628.fastq.gz,,auto
+SRR26421629,data/sra_data_downsampled/SRR26421629.fastq.gz,,auto
+SRR26421630,data/sra_data_downsampled/SRR26421630.fastq.gz,,auto
+SRR26421631,data/sra_data_downsampled/SRR26421631.fastq.gz,,auto
+SRR26421632,data/sra_data_downsampled/SRR26421632.fastq.gz,,auto
+SRR26421633,data/sra_data_downsampled/SRR26421633.fastq.gz,,auto
