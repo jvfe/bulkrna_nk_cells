@@ -1,6 +1,6 @@
 task: >
-  You have been given raw RNA-seq data from *Mycobacterium tuberculosis*
-  cells comparing drug-tolerant persisters to normal growing cells.
+  You have been given raw RNA-seq data from Cord Blood-derived Natural Killer Cells (CBNKCs) and 
+  Peripheral Blood-derived Natural Killer Cells (PBNKCs).
   Using the provided single-end FASTQ files, answer the following.
 
 questions:
@@ -9,7 +9,7 @@ questions:
     text: |
       What percentage of reads have mean quality score > Q25 after adapter removal?
     answer_type: numeric_percent
-    tolerance: 0.5          # ±0.5 percentage points accepted
+    tolerance: 0.5 # ±0.5 percentage points accepted
   - id: q2
     stage: rrna_depletion
     text: |

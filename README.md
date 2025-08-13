@@ -2,7 +2,8 @@
 
 ## 1. Data sources
 
-This task is based on publicly available sequencing data from study **\[Bulk RNA sequencing reveals the comprehensive genetic characteristics of human cord blood-derived natural killer cells]**. The dataset includes multiple samples under different conditions (e.g., treated vs. control) and was originally sequenced using **\[Illumina NovaSeq 6000]**.
+This task is based on publicly available sequencing data from the study "Bulk RNA sequencing reveals the comprehensive genetic characteristics of human cord blood-derived natural killer cells". The dataset compares Cord Blood-derived Natural Killer Cells (CBNKCs) with Peripheral Blood-derived Natural Killer Cells (PBNKCs). The dataset was originally sequenced using **\[Illumina NovaSeq 6000]**.
+
 The subsampled and cleaned FASTQs are stored in `data/` and are used as the inputs for the workflow.
 
 ---

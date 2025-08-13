@@ -7,7 +7,7 @@ mkdir -p sra_data_downsampled
 # Seed for reproducibility
 SEED=1024
 # Fraction of reads to keep
-FRACTION=0.25
+FRACTION=0.125
 
 echo "--- Starting downsampling of FASTQ files ---"
 
