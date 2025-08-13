@@ -6,7 +6,7 @@ ref_genome: hg38 (chr22)
 tools:
   [
     fastqc 0.12.1,
-    star 2.7.11a,
+    hisat2 2.2.21,
     samtools 1.19.2,
     featureCounts 2.0.6,
     DESeq2 1.48.1,

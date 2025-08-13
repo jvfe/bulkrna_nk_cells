@@ -50,12 +50,12 @@ bash workflow/run_pipeline.sh
 
 ---
 
-### Step 2 - Perform differential expression analysis and enrichment
+### Step 2 - Perform differential expression analysis
 
-**Purpose:** Find differentially expressed genes between the conditions and enrich biologically relevant pathways
+**Purpose:** Find differentially expressed genes between the conditions
 **Tools:** `R`, `DESeq2`, `Clusterprofiler`
 **Inputs:** Count Matrix, metadata table
-**Outputs:** Table of differentially expressed genes, table of enriched terms
+**Outputs:** Table of differentially expressed genes
 **Command:**
 
 ```bash

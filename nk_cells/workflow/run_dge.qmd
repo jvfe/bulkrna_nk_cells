@@ -1,0 +1,33 @@
+---
+title: "run_dge"
+format: html
+---
+
+```{r}
+# Load necessary libraries
+library(DESeq2)
+
+count_data <- readRDS("results/count_table_hisat2.rds")
+
+col_data <- read.csv("data/metadata.csv", row.names = 1)
+
+colnames(count_data) <- rownames(col_data)
+
+rownames(count_data)[which.max(rowSums(count_data))] # q4
+
+dds <- DESeqDataSetFromMatrix(countData = count_data,
+                              colData = col_data,
+                              design = ~ condition)
+
+# Run the DESeq2 analysis
+dds <- DESeq(dds)
+
+# Get the results for the condition comparison
+res <- results(dds, name="condition_pNK3_vs_CD3d_CBMC", tidy = T)
+summary(res)
+
+res <- res[complete.cases(res),]
+sig_gene <- res[res$pvalue < 0.1, ]
+sig_gene$row # q5
+```
+

@@ -7,27 +7,26 @@ questions:
   - id: q1
     stage: quality_control
     text: |
-      What percentage of reads have mean quality score > Q25 after adapter removal?
+      What percentage of reads are duplicated in sample SRR26421632?
     answer_type: numeric_percent
-    tolerance: 0.5 # ±0.5 percentage points accepted
+    tolerance: 1.0 # ±0.5 percentage points accepted
   - id: q2
-    stage: rrna_depletion
+    stage: quality_control
     text: |
-      What percentage of reads align to ribosomal RNA genes?
-    answer_type: numeric_percent
-    tolerance: 0.5
+      What sample has the highest GC content?
+    answer_type: string_exact
   - id: q3
     stage: alignment
     text: |
-      How many reads uniquely map to the H37Rv reference genome?
+      How many reads in sample SRR26421628 uniquely map to the chromosome 22 reference?
     answer_type: integer_exact
   - id: q4
     stage: quantification
     text: |
-      Which gene has the highest TPM value in the normal growing-cell samples?
+      Which gene has the highest count value across all samples?
     answer_type: string_exact
   - id: q5
     stage: differential_expression
     text: |
-      How many genes show > 10-fold up-regulation in persister cells (FDR < 0.01)?
-    answer_type: integer_exact
+      What gene has the lowest unadjusted p-value?
+    answer_type: string_exact
