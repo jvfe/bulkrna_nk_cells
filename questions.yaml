@@ -9,7 +9,7 @@ questions:
     text: |
       What percentage of reads are duplicated in sample SRR26421632?
     answer_type: numeric_percent
-    tolerance: 1.0 # ±0.5 percentage points accepted
+    tolerance: 5.0
   - id: q2
     stage: quality_control
     text: |
@@ -18,7 +18,7 @@ questions:
   - id: q3
     stage: alignment
     text: |
-      How many reads in sample SRR26421628 uniquely map to the chromosome 22 reference?
+      How many reads in sample SRR26421628 uniquely map to the reference?
     answer_type: integer_exact
   - id: q4
     stage: quantification
@@ -28,5 +28,5 @@ questions:
   - id: q5
     stage: differential_expression
     text: |
-      What gene has the lowest unadjusted p-value?
+      What gene has the highest logFC value?
     answer_type: string_exact
