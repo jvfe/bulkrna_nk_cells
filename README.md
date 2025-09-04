@@ -39,13 +39,18 @@ The workflow files is stored in `workflow/`.
 ### Step 1 – Re-run nextflow workflow described in article
 
 **Purpose:** Remove low-quality reads and adapter sequences, align to a reference and generate a count matrix
+
 **Tools:** `nextflow`, `fastqc`, `star`, `featureCounts`
+
 **Inputs:** Subsampled FASTQ files (from`data/sra_data_downsampled/`), references (from `data/reference_files/`)
+
 **Outputs:** QC reports, Alignments, Count Matrix
+
 **Command:**
 
 ```bash
-bash workflow/run_pipeline.sh
+bash workflow/run_rnaseq.sh
+Rscript workflow/gather_counts.R results/featureCounts/*txt
 ```
 
 ---
@@ -53,9 +58,13 @@ bash workflow/run_pipeline.sh
 ### Step 2 - Perform differential expression analysis
 
 **Purpose:** Find differentially expressed genes between the conditions
+
 **Tools:** `R`, `DESeq2`, `Clusterprofiler`
+
 **Inputs:** Count Matrix, metadata table
+
 **Outputs:** Table of differentially expressed genes
+
 **Command:**
 
 ```bash
